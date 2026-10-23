@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Part 3 — Events</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Events and Calculator</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="part1.html">Part 1</a>
+        <a href="part2.html">Part 2</a>
+        <a href="part3.html">Part 3</a>
+        <a href="part4.html">Part 4</a>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="demo">
+        <h2>Task 5. Mouse Events</h2>
+        <div id="mouseBox">Move your mouse over this box</div>
+    </section>
+
+    <section class="demo">
+        <h2>Task 6. Keyboard Events</h2>
+        <input id="textInput" type="text" placeholder="Type something">
+        <p>Current value: <span id="output"></span></p>
+    </section>
+
+    <section class="demo">
+        <h2>Task 7. Calculator</h2>
+        <input id="num1" type="number" placeholder="First number">
+        <select id="operator">
+            <option value="+">Addition (+)</option>
+            <option value="-">Subtraction (-)</option>
+            <option value="*">Multiplication (*)</option>
+            <option value="/">Division (/)</option>
+        </select>
+        <input id="num2" type="number" placeholder="Second number">
+        <button id="calculate">Calculate</button>
+        <p id="result"></p>
+    </section>
+</main>
+
+<script>
+const mouseBox = document.getElementById("mouseBox");
+
+mouseBox.addEventListener("mouseover", function () {
+    mouseBox.style.backgroundColor = "orange";
+});
+
+mouseBox.addEventListener("mouseout", function () {
+    mouseBox.style.backgroundColor = "lightgreen";
+});
+
+document.getElementById("textInput").addEventListener("keyup", function () {
+    document.getElementById("output").textContent = this.value;
+});
+
+document.getElementById("calculate").addEventListener("click", function () {
+    const a = Number(document.getElementById("num1").value);
+    const b = Number(document.getElementById("num2").value);
+    const op = document.getElementById("operator").value;
+    const result = document.getElementById("result");
+
+    if (document.getElementById("num1").value === "" ||
+        document.getElementById("num2").value === "") {
+        result.textContent = "Enter both numbers.";
+        return;
+    }
+
+    if (op === "/" && b === 0) {
+        result.textContent = "Cannot divide by zero.";
+        return;
+    }
+
+    let answer;
+    if (op === "+") answer = a + b;
+    else if (op === "-") answer = a - b;
+    else if (op === "*") answer = a * b;
+    else answer = a / b;
+
+    result.textContent = "Result: " + answer;
+});
+</script>
+</body>
+</html>

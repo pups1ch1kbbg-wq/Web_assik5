@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Part 2 — DOM Manipulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>DOM Manipulation</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="part1.html">Part 1</a>
+        <a href="part2.html">Part 2</a>
+        <a href="part3.html">Part 3</a>
+        <a href="part4.html">Part 4</a>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="demo">
+        <h2>Task 2. Changing Content</h2>
+        <p id="message">Original paragraph text.</p>
+        <button id="changeText">Change Text</button>
+    </section>
+
+    <section class="demo" id="styleBox">
+        <h2>Task 3. Changing Styles</h2>
+        <p>Change this block's background and font size.</p>
+        <button id="changeColor">Change Background</button>
+        <button id="changeFont">Change Font Size</button>
+    </section>
+
+    <section class="demo">
+        <h2>Task 4. Creating and Removing Elements</h2>
+        <button id="addItem">Add Item</button>
+        <button id="removeItem">Remove Item</button>
+        <ul id="itemList">
+            <li>First item</li>
+        </ul>
+    </section>
+</main>
+
+<script>
+document.getElementById("changeText").addEventListener("click", function () {
+    document.getElementById("message").textContent = "The text has been changed!";
+});
+
+document.getElementById("changeColor").addEventListener("click", function () {
+    const box = document.getElementById("styleBox");
+    box.style.backgroundColor =
+        box.style.backgroundColor === "lightblue" ? "lightyellow" : "lightblue";
+});
+
+document.getElementById("changeFont").addEventListener("click", function () {
+    const box = document.getElementById("styleBox");
+    const size = parseInt(getComputedStyle(box).fontSize);
+    box.style.fontSize = (size >= 24 ? 16 : size + 2) + "px";
+});
+
+let itemNumber = 1;
+
+document.getElementById("addItem").addEventListener("click", function () {
+    itemNumber++;
+    const item = document.createElement("li");
+    item.textContent = "Item " + itemNumber;
+    document.getElementById("itemList").appendChild(item);
+});
+
+document.getElementById("removeItem").addEventListener("click", function () {
+    const list = document.getElementById("itemList");
+    if (list.lastElementChild) {
+        list.lastElementChild.remove();
+    }
+});
+</script>
+</body>
+</html>

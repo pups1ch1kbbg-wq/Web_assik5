@@ -1,0 +1,145 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fffaf0;
+    color: #333333;
+}
+
+header {
+    background: #ffb347;
+    color: #333333;
+    padding: 22px;
+    text-align: center;
+}
+
+header h1 {
+    margin-top: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    color: #333333;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background: #ffe082;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+h2 {
+    color: #e87516;
+}
+
+.card {
+    display: block;
+    background: #ffffff;
+    padding: 22px;
+    margin: 15px 0;
+    border: 1px solid #ffe0b2;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333333;
+}
+
+.card:hover {
+    background: #fff3d6;
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #ff9800;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background: #e87516;
+}
+
+input, select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ffcc80;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #ffb347;
+}
+
+.demo {
+    background: #ffffff;
+    padding: 22px;
+    margin: 20px 0;
+    border: 1px solid #ffe0b2;
+    border-radius: 12px;
+}
+
+#styleBox {
+    background: #fff3cd;
+}
+
+#mouseBox {
+    background: #b9f6ca;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    transition: background 0.2s;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #888888;
+}
+
+p {
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 12px;
+    }
+
+    nav {
+        gap: 6px;
+    }
+
+    nav a {
+        padding: 8px 10px;
+    }
+
+    input, select {
+        max-width: 100%;
+    }
+}
